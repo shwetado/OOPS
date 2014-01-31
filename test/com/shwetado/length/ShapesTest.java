@@ -1,4 +1,4 @@
-package com.shwetado;
+package com.shwetado.length;
 
 import org.junit.Test;
 

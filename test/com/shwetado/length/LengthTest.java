@@ -1,4 +1,4 @@
-package com.shwetado;
+package com.shwetado.length;
 
 import org.junit.Test;
 
@@ -8,7 +8,7 @@ public class LengthTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testWhenGivenIllegalParameter(){
-        new Length(-4,Unit.meter);
+        new Length(-4, Unit.meter);
     }
 
     @Test
