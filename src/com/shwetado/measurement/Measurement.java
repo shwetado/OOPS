@@ -1,10 +1,15 @@
 package com.shwetado.measurement;
 
+import com.shwetado.length.Length;
+import com.shwetado.length.LengthUnit;
+import com.shwetado.volume.Volume;
+import com.shwetado.volume.VolumeUnit;
+
 public class Measurement {
     private double value;
     private Unit unit;
 
-    public Measurement(double value, Unit unit){
+    protected Measurement(double value, Unit unit){
         this.value = value;
         this.unit = unit;
     }
@@ -40,4 +45,11 @@ public class Measurement {
         return this.getUnit();
     }
 
+    public static Volume getVolume(Double value, VolumeUnit unit) {
+        return new Volume(value,unit);
+    }
+
+    public static Length getLength(Double value, LengthUnit unit) {
+        return new Length(value,unit);
+    }
 }

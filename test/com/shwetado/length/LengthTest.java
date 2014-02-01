@@ -6,11 +6,6 @@ import static junit.framework.Assert.assertEquals;
 
 public class LengthTest {
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testWhenGivenIllegalParameter(){
-        new Length(-4, LengthUnit.METER);
-    }
-
     @Test
     public void testLengthInMetersToCentimeter() {
         Length length1 = new Length(1, LengthUnit.METER);
