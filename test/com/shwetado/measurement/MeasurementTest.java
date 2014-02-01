@@ -18,13 +18,6 @@ public class MeasurementTest {
     }
 
     @Test
-    public void testToCheckWhetherTwoObjectsAreEqualForDifferentUnit() {
-        Measurement volume1 = new Measurement(1d, VolumeUnit.KILOLITER);
-        Measurement volume2 = new Measurement(1000d, VolumeUnit.LITER);
-        assertEquals(volume1, volume2);
-    }
-
-    @Test
     public void testConvertsVolumeFromKiloliterToLiter() {
         Measurement volume1 = new Measurement(10d, VolumeUnit.KILOLITER);
         Measurement volume2 = new Measurement(10000d, VolumeUnit.LITER);

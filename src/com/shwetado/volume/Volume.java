@@ -11,9 +11,7 @@ public class Volume extends Measurement {
     @Override
     public boolean equals(Object o) {
         if(super.equals(o))
-            if ((o instanceof Volume)) {
-                return true;
-            }
+            if ((o instanceof Volume)) return true;
         return false;
     }
 
