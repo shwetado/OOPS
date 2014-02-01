@@ -21,6 +21,6 @@ public class Volume extends Measurement {
     public Volume convertTo(Unit unit) {
         VolumeUnit volumeUnit = (VolumeUnit) unit;
         Measurement measurement = super.convertTo(volumeUnit);
-        return  Measurement.getVolume(measurement.getValue(), (VolumeUnit) measurement.getUnit());
+        return new Volume(measurement.getValue(), (VolumeUnit) measurement.getUnit());
     }
 }
