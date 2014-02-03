@@ -80,4 +80,22 @@ public class LengthTest {
         assertEquals(length2, length1.convertTo(LengthUnit.METER));
     }
 
+    @Test
+    public void testToAddTwoQuantitiesOfLength(){
+        Length length1 = new Length(1, LengthUnit.CENTIMETER);
+        Length length2 = new Length(1, LengthUnit.CENTIMETER);
+        Length actual = length1.add(length2);
+        Length expected = new Length(2, LengthUnit.CENTIMETER);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testToAddTwoDifferentQuantitiesOfLength(){
+        Length length1 = new Length(1, LengthUnit.CENTIMETER);
+        Length length2 = new Length(10, LengthUnit.MILLIMETER);
+        Length actual = length1.add(length2);
+        Length expected = new Length(2, LengthUnit.CENTIMETER);
+        assertEquals(expected, actual);
+    }
+
 }
