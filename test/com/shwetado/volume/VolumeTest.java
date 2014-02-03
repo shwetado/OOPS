@@ -40,5 +40,22 @@ public class VolumeTest {
         assertEquals(volume2, volume1.convertTo(VolumeUnit.KILOLITER));
     }
 
+    @Test
+    public void testToAddTwoQuantitiesOfVolume(){
+        Volume volume1 = new Volume(1, VolumeUnit.KILOLITER);
+        Volume volume2 = new Volume(1, VolumeUnit.KILOLITER);
+        Volume actual = volume1.add(volume2);
+        Volume expected = new Volume(2, VolumeUnit.KILOLITER);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testToAddTwoDifferentQuantitiesOfVolume(){
+        Volume volume1 = new Volume(1, VolumeUnit.KILOLITER);
+        Volume volume2 = new Volume(1000, VolumeUnit.LITER);
+        Volume actual = volume1.add(volume2);
+        Volume expected = new Volume(2, VolumeUnit.KILOLITER);
+        assertEquals(expected, actual);
+    }
 }
 

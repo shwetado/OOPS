@@ -1,5 +1,8 @@
 package com.shwetado.measurement;
 
+import com.shwetado.length.LengthUnit;
+import com.sun.swing.internal.plaf.metal.resources.metal;
+
 public class Measurement {
     private Double value;
     private Unit unit;
@@ -34,5 +37,18 @@ public class Measurement {
         Measurement thisUnit = this.convertTo(this.getUnit());
 
         return Double.compare(thisUnit.value, otherUnit.value) == 0;
+    }
+
+    public Measurement add(Measurement other) {
+        Unit unit = getGreaterUnit(other.getUnit());
+        Measurement thisLength = this.convertTo(unit);
+        Measurement otherLength = other.convertTo(unit);
+        double additionValue = thisLength.getValue() + otherLength.getValue();
+        return new Measurement(additionValue, unit);
+    }
+
+    private Unit getGreaterUnit(Unit otherUnit) {
+        return (this.getUnit().getUnitValue() > otherUnit.getUnitValue()
+                ? this.getUnit() : otherUnit);
     }
 }

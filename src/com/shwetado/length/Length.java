@@ -17,21 +17,15 @@ public class Length extends Measurement {
 
     @Override
     public Length convertTo(Unit unit) {
-        LengthUnit volumeUnit = (LengthUnit) unit;
-        Measurement measurement = super.convertTo(volumeUnit);
+        LengthUnit lengthUnit = (LengthUnit) unit;
+        Measurement measurement = super.convertTo(lengthUnit);
         return new Length(measurement.getValue(), (LengthUnit) measurement.getUnit());
     }
 
-    public Length add(Length other) {
-        LengthUnit unit = getGreaterUnit((LengthUnit) other.getUnit());
-        Length thisLength = this.convertTo(unit);
-        Length otherLength = other.convertTo(unit);
-        double additionValue = thisLength.getValue() + otherLength.getValue();
-        return new Length(additionValue, unit);
-    }
-
-    private LengthUnit getGreaterUnit(LengthUnit otherUnit) {
-        return (LengthUnit) (this.getUnit().getUnitValue() > otherUnit.getUnitValue()
-                ? this.getUnit() : otherUnit);
+    @Override
+    public Length add(Measurement other) {
+        Length length = (Length) other;
+        Measurement measurement = super.add(length);
+        return new Length(measurement.getValue(),(LengthUnit) measurement.getUnit());
     }
 }

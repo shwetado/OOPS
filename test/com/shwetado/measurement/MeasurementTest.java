@@ -134,4 +134,15 @@ public class MeasurementTest {
         length.convertTo(VolumeUnit.MILLILITER);
     }
 
+    @Test
+    public void testToAddTwoDifferentQuantitiesOfLength(){
+        Measurement length1 = new Measurement(1d, LengthUnit.CENTIMETER);
+        Measurement length2 = new Measurement(10d, LengthUnit.MILLIMETER);
+        Measurement actual = length1.add(length2);
+        Measurement expected = new Measurement(2d, LengthUnit.CENTIMETER);
+        assertEquals(expected, actual);
+    }
+
+
+
 }

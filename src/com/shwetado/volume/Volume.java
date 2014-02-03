@@ -21,4 +21,12 @@ public class Volume extends Measurement {
         Measurement measurement = super.convertTo(volumeUnit);
         return new Volume(measurement.getValue(), (VolumeUnit) measurement.getUnit());
     }
+
+    @Override
+    public Volume add(Measurement other) {
+        Volume volume = (Volume) other;
+        Measurement measurement = super.add(volume);
+        return new Volume(measurement.getValue(),(VolumeUnit) measurement.getUnit());
+    }
+
 }
