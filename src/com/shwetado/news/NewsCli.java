@@ -1,8 +1,4 @@
-package com.shwetado.news.cli;
-
-import com.shwetado.news.Formatter;
-import com.shwetado.news.HtmlFormat;
-import com.shwetado.news.News;
+package com.shwetado.news;
 
 public class NewsCli {
 
