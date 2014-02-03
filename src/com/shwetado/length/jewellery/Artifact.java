@@ -1,4 +1,4 @@
-package com.shwetado.jewellery;
+package com.shwetado.length.jewellery;
 
 public interface Artifact {
     public String getName();

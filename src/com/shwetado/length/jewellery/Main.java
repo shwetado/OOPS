@@ -1,4 +1,4 @@
-package com.shwetado.jewellery;
+package com.shwetado.length.jewellery;
 
 public class Main{
     public static void main(String[] args) {

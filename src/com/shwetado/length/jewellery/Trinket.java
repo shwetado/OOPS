@@ -1,10 +1,9 @@
-package com.shwetado.jewellery;
+package com.shwetado.length.jewellery;
 
-public class Diamond implements Artifact {
-
+public class Trinket implements Artifact{
     private String name;
 
-    public Diamond(String name) {
+    public Trinket(String name) {
         this.name = name;
     }
 
