@@ -13,7 +13,13 @@ public enum LengthUnit implements Unit {
     }
 
     public Double getUnitValue() {
-
         return unit;
+    }
+
+    @Override
+    public LengthUnit getGreaterUnit(Unit otherUnit) {
+        LengthUnit lengthUnit = (LengthUnit) otherUnit;
+        return (this.getUnitValue() > lengthUnit.getUnitValue()
+                ? this : lengthUnit);
     }
 }

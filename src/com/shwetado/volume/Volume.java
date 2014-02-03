@@ -1,7 +1,6 @@
 package com.shwetado.volume;
 
 import com.shwetado.measurement.Measurement;
-import com.shwetado.measurement.Unit;
 
 public class Volume extends Measurement {
     public Volume(double value, VolumeUnit unit) {
@@ -15,17 +14,13 @@ public class Volume extends Measurement {
         return false;
     }
 
-    @Override
-    public Volume convertTo(Unit unit) {
-        VolumeUnit volumeUnit = (VolumeUnit) unit;
-        Measurement measurement = super.convertTo(volumeUnit);
+    public Volume convertTo(VolumeUnit unit) {
+        Measurement measurement = super.convertTo(unit);
         return new Volume(measurement.getValue(), (VolumeUnit) measurement.getUnit());
     }
 
-    @Override
-    public Volume add(Measurement other) {
-        Volume volume = (Volume) other;
-        Measurement measurement = super.add(volume);
+    public Volume add(Volume other) {
+        Measurement measurement = super.add(other);
         return new Volume(measurement.getValue(),(VolumeUnit) measurement.getUnit());
     }
 

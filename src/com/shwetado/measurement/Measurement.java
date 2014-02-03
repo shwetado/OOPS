@@ -1,8 +1,5 @@
 package com.shwetado.measurement;
 
-import com.shwetado.length.LengthUnit;
-import com.sun.swing.internal.plaf.metal.resources.metal;
-
 public class Measurement {
     private Double value;
     private Unit unit;
@@ -23,7 +20,8 @@ public class Measurement {
     public Measurement convertTo(Unit otherUnit) {
         double thisUnitValue = this.getUnit().getUnitValue();
         double otherUnitValue = otherUnit.getUnitValue();
-        return new Measurement(thisUnitValue / otherUnitValue * this.value, otherUnit);
+        double conversionFactor = thisUnitValue / otherUnitValue;
+        return new Measurement(conversionFactor * this.value, otherUnit);
     }
 
     @Override
@@ -40,15 +38,11 @@ public class Measurement {
     }
 
     public Measurement add(Measurement other) {
-        Unit unit = getGreaterUnit(other.getUnit());
+        Unit unit = this.getUnit().getGreaterUnit(other.getUnit());
         Measurement thisLength = this.convertTo(unit);
         Measurement otherLength = other.convertTo(unit);
         double additionValue = thisLength.getValue() + otherLength.getValue();
         return new Measurement(additionValue, unit);
     }
 
-    private Unit getGreaterUnit(Unit otherUnit) {
-        return (this.getUnit().getUnitValue() > otherUnit.getUnitValue()
-                ? this.getUnit() : otherUnit);
-    }
 }

@@ -1,7 +1,6 @@
 package com.shwetado.length;
 
 import com.shwetado.measurement.Measurement;
-import com.shwetado.measurement.Unit;
 
 public class Length extends Measurement {
     public Length(double value, LengthUnit unit) {
@@ -15,17 +14,13 @@ public class Length extends Measurement {
         return false;
     }
 
-    @Override
-    public Length convertTo(Unit unit) {
-        LengthUnit lengthUnit = (LengthUnit) unit;
-        Measurement measurement = super.convertTo(lengthUnit);
+    public Length convertTo(LengthUnit unit) {
+        Measurement measurement = super.convertTo(unit);
         return new Length(measurement.getValue(), (LengthUnit) measurement.getUnit());
     }
 
-    @Override
-    public Length add(Measurement other) {
-        Length length = (Length) other;
-        Measurement measurement = super.add(length);
+    public Length add(Length other) {
+        Measurement measurement = super.add(other);
         return new Length(measurement.getValue(),(LengthUnit) measurement.getUnit());
     }
 }

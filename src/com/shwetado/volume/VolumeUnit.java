@@ -16,4 +16,11 @@ public enum VolumeUnit implements Unit {
         return unitValue;
     }
 
+    @Override
+    public VolumeUnit getGreaterUnit(Unit otherUnit) {
+        VolumeUnit volumeUnit = (VolumeUnit) otherUnit;
+        return (this.getUnitValue() > volumeUnit.getUnitValue()
+                ? this : volumeUnit);
+    }
+
 }
